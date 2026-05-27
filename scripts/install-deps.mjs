@@ -5,12 +5,20 @@
  */
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+const LIB_PKG = readJson(join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')).name
 
 const PEERS = ['react', 'react-dom', 'lucide-react', 'recharts']
 const DEV_DEPS = ['tailwindcss@^3.4.10', 'postcss', 'autoprefixer']
 
-const TAILWIND_ESM = `import clayPreset from 'clay-ui/preset'
+function tailwindEsm(pkgName) {
+  return `import clayPreset from '${pkgName}/preset'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,7 +26,7 @@ export default {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/clay-ui/dist/**/*.js',
+    './node_modules/${pkgName}/dist/**/*.js',
   ],
   theme: {
     extend: {
@@ -30,14 +38,16 @@ export default {
   },
 }
 `
+}
 
-const TAILWIND_CJS = `/** @type {import('tailwindcss').Config} */
+function tailwindCjs(pkgName) {
+  return `/** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('clay-ui/preset')],
+  presets: [require('${pkgName}/preset')],
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/clay-ui/dist/**/*.js',
+    './node_modules/${pkgName}/dist/**/*.js',
   ],
   theme: {
     extend: {
@@ -49,9 +59,6 @@ module.exports = {
   },
 }
 `
-
-function readJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'))
 }
 
 function detectPackageManager(root) {
@@ -108,10 +115,17 @@ function hasTailwindConfig(root) {
   )
 }
 
-function scaffoldTailwind(root, pkg) {
+function hasClayDependency(pkg) {
+  const deps = { ...pkg.dependencies, ...pkg.devDependencies }
+  return Object.keys(deps).some(
+    (name) => name === LIB_PKG || name === 'clay-ui' || name.endsWith('/clay-ui'),
+  )
+}
+
+function scaffoldTailwind(root, pkg, clayPkgName) {
   if (hasTailwindConfig(root)) return false
   const path = join(root, 'tailwind.config.js')
-  const template = pkg.type === 'module' ? TAILWIND_ESM : TAILWIND_CJS
+  const template = pkg.type === 'module' ? tailwindEsm(clayPkgName) : tailwindCjs(clayPkgName)
   writeFileSync(path, template, 'utf8')
   console.log(`[clay-ui] Created ${path}`)
   return true
@@ -156,20 +170,22 @@ export function runSetup(options = {}) {
   }
 
   const pkg = readJson(pkgPath)
-  if (pkg.name === 'clay-ui') {
+  if (pkg.name === LIB_PKG) {
     console.log('[clay-ui] Library repo detected — skipping consumer setup.')
     return
   }
 
-  const usesClay =
-    pkg.dependencies?.['clay-ui'] ||
-    pkg.devDependencies?.['clay-ui'] ||
-    options.force
+  const usesClay = hasClayDependency(pkg) || options.force
 
   if (!usesClay) {
-    console.log('[clay-ui] clay-ui is not a dependency — skipping setup.')
+    console.log(`[clay-ui] ${LIB_PKG} is not a dependency — skipping setup.`)
     return
   }
+
+  const clayPkgName =
+    Object.keys({ ...pkg.dependencies, ...pkg.devDependencies }).find(
+      (name) => name === LIB_PKG || name === 'clay-ui' || name.endsWith('/clay-ui'),
+    ) ?? LIB_PKG
 
   console.log('[clay-ui] Setting up dependencies in', root)
 
@@ -177,17 +193,17 @@ export function runSetup(options = {}) {
   const installedPeers = addPackages(pm, root, PEERS, false)
   const installedDev = addPackages(pm, root, DEV_DEPS, true)
 
-  const createdTw = scaffoldTailwind(root, pkg)
+  const createdTw = scaffoldTailwind(root, pkg, clayPkgName)
   scaffoldPostcss(root, pkg)
 
   if (installedPeers.length || installedDev.length || createdTw) {
     console.log('\n[clay-ui] Setup complete. Next steps:')
     console.log('  1. Import styles in your entry file:')
-    console.log("     import 'clay-ui/styles.css'")
+    console.log(`     import '${clayPkgName}/styles.css'`)
     console.log('  2. Add Google fonts (optional):')
     console.log('     Nunito Sans + Varela Round')
     console.log('  3. Use components:')
-    console.log("     import { Button } from 'clay-ui'")
+    console.log(`     import { Button } from '${clayPkgName}'`)
     console.log('  Docs: npm run docs:dev inside the clay-ui package → http://localhost:5174\n')
   } else {
     console.log('[clay-ui] All dependencies already present.')
