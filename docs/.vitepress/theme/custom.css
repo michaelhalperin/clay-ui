@@ -1,18 +1,140 @@
+/**
+ * Clay UI — VitePress theme
+ *
+ * Light tokens live on :root; dark tokens on .dark. Both selectors match
+ * <html>, so every override in :root must be mirrored in .dark — otherwise
+ * light values (e.g. --vp-c-bg-soft) win in dark mode.
+ */
+
 :root {
-  --vp-c-brand-1: #0ea5e9;
-  --vp-c-brand-2: #0284c7;
-  --vp-c-brand-3: #0369a1;
+  /* Brand — sky / clay-500 */
+  --vp-c-brand-1: #0284c7;
+  --vp-c-brand-2: #0ea5e9;
+  --vp-c-brand-3: #0ea5e9;
   --vp-c-brand-soft: rgba(14, 165, 233, 0.14);
-  --vp-c-bg-soft: #f8fafc;
+
+  /* Surfaces */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f8fafc;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f1f5f9;
+
+  /* Borders */
+  --vp-c-divider: #e2e8f0;
+  --vp-c-border: #cbd5e1;
+  --vp-c-gutter: #e2e8f0;
+
+  /* Text */
+  --vp-c-text-1: #0f172a;
+  --vp-c-text-2: #475569;
+  --vp-c-text-3: #94a3b8;
+
+  /* Neutrals (buttons, hovers) */
+  --vp-c-gray-1: #64748b;
+  --vp-c-gray-2: #e2e8f0;
+  --vp-c-gray-3: #f1f5f9;
+  --vp-c-gray-soft: rgba(100, 116, 139, 0.12);
+
   --vp-font-family-base: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
   --vp-font-family-mono: ui-monospace, 'Cascadia Code', monospace;
+
+  /* Home */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #0284c7 30%, #8b5cf6);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bae6fd 50%, #ddd6fe 50%);
+  --vp-home-hero-image-filter: blur(56px);
+}
+
+.dark {
+  /* Brand — lighter sky on dark backgrounds */
+  --vp-c-brand-1: #7dd3fc;
+  --vp-c-brand-2: #38bdf8;
+  --vp-c-brand-3: #0ea5e9;
+  --vp-c-brand-soft: rgba(56, 189, 248, 0.16);
+
+  /* Surfaces — slate */
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #1e293b;
+  --vp-c-bg-elv: #334155;
+  --vp-c-bg-soft: #1e293b;
+
+  /* Borders */
+  --vp-c-divider: #334155;
+  --vp-c-border: #475569;
+  --vp-c-gutter: #0f172a;
+
+  /* Text */
+  --vp-c-text-1: #f1f5f9;
+  --vp-c-text-2: #94a3b8;
+  --vp-c-text-3: #64748b;
+
+  /* Neutrals */
+  --vp-c-gray-1: #94a3b8;
+  --vp-c-gray-2: #475569;
+  --vp-c-gray-3: #334155;
+  --vp-c-gray-soft: rgba(148, 163, 184, 0.14);
+
+  /* Code blocks */
+  --vp-code-block-bg: #1e293b;
+  --vp-code-copy-code-bg: #334155;
+  --vp-code-copy-code-hover-bg: #475569;
+  --vp-code-copy-code-hover-border-color: #64748b;
+
+  /* Home */
+  --vp-home-hero-name-background: linear-gradient(120deg, #38bdf8 30%, #c4b5fd);
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(56, 189, 248, 0.4) 50%,
+    rgba(167, 139, 250, 0.35) 50%
+  );
+  --vp-home-hero-image-filter: blur(56px);
+
+  /* Sticky nav — slight translucency on dark */
+  --vp-nav-bg-color: rgba(15, 23, 42, 0.92);
+  --vp-local-nav-bg-color: rgba(15, 23, 42, 0.92);
+}
+
+/* Typography */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: 'Varela Round', var(--vp-font-family-base);
 }
 
 .vp-doc h1 {
   font-weight: 700;
 }
 
+/* Tables */
 .vp-doc table {
   display: table;
   width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-bg-alt);
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc tr:nth-child(even) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* Feature cards on the home page */
+.dark .VPFeature .box {
+  background-color: var(--vp-c-bg-alt);
+  border-color: var(--vp-c-divider);
 }

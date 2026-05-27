@@ -87,6 +87,17 @@ export default defineConfig(({ command }) => {
     title: 'Clay UI',
     description: 'Soft, pastel React component library built with Tailwind CSS',
     lang: 'en-US',
+    head: [
+      ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+      ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+      [
+        'link',
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&family=Varela+Round&display=swap',
+        },
+      ],
+    ],
     cleanUrls: true,
     lastUpdated: true,
     ignoreDeadLinks: [/^https?:\/\/localhost/, /^\/showcase\//],
