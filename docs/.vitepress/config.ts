@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { SHOWCASE_DEV_URL, SHOWCASE_PROD_PATH } from '../../site-urls'
+import { SHOWCASE_DEV_URL, SHOWCASE_PROD_PATH, SHOWCASE_PROD_URL } from '../../site-urls'
 
 const ui = [
   { text: 'Button', link: '/button' },
@@ -81,7 +81,7 @@ const cards = [
 
 export default defineConfig(({ command }) => {
   const isProductionBuild = command === 'build'
-  const showcaseUrl = isProductionBuild ? SHOWCASE_PROD_PATH : SHOWCASE_DEV_URL
+  const showcaseUrl = isProductionBuild ? SHOWCASE_PROD_URL : SHOWCASE_DEV_URL
 
   return {
     title: 'Clay UI',
@@ -96,7 +96,7 @@ export default defineConfig(({ command }) => {
         | { actions?: { text?: string; link?: string }[] }
         | undefined
       hero?.actions?.forEach((action) => {
-        if (action.text === 'Live showcase') action.link = SHOWCASE_PROD_PATH
+        if (action.text === 'Live showcase') action.link = SHOWCASE_PROD_URL
       })
     },
     vite: {
