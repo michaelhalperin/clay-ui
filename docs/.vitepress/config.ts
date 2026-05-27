@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
-
-const showcaseUrl = process.env.VITEPRESS_SHOWCASE_URL ?? 'http://localhost:5173'
+import { SHOWCASE_DEV_URL, SHOWCASE_PROD_PATH } from '../../site-urls'
 
 const ui = [
   { text: 'Button', link: '/button' },
@@ -80,34 +79,52 @@ const cards = [
   { text: 'Auth Card', link: '/auth-card' },
 ]
 
-export default defineConfig({
-  title: 'Clay UI',
-  description: 'Soft, pastel React component library built with Tailwind CSS',
-  lang: 'en-US',
-  cleanUrls: true,
-  lastUpdated: true,
-  ignoreDeadLinks: [/^https?:\/\/localhost/],
-  vite: {
-    server: { port: 5177, strictPort: true },
-    preview: { port: 4174, strictPort: true },
-  },
-  themeConfig: {
-    logo: { text: 'Clay UI' },
-    nav: [
-      { text: 'Components', link: '/' },
-      { text: 'Live showcase', link: showcaseUrl, target: '_blank' },
-    ],
-    sidebar: [
-      { text: 'Getting started', items: [{ text: 'Introduction', link: '/' }] },
-      { text: 'UI Elements', items: ui },
-      { text: 'Data', items: data },
-      { text: 'Navigation', items: nav },
-      { text: 'Cards', items: cards },
-    ],
-    footer: {
-      message: 'Clay UI · React + TypeScript + Tailwind',
-      copyright: 'MIT',
+export default defineConfig(({ command }) => {
+  const isProductionBuild = command === 'build'
+  const showcaseUrl = isProductionBuild ? SHOWCASE_PROD_PATH : SHOWCASE_DEV_URL
+
+  return {
+    title: 'Clay UI',
+    description: 'Soft, pastel React component library built with Tailwind CSS',
+    lang: 'en-US',
+    cleanUrls: true,
+    lastUpdated: true,
+    ignoreDeadLinks: [/^https?:\/\/localhost/, /^\/showcase\//],
+    transformPageData(pageData) {
+      if (!isProductionBuild || pageData.relativePath !== 'index.md') return
+      const hero = pageData.frontmatter?.hero as
+        | { actions?: { text?: string; link?: string }[] }
+        | undefined
+      hero?.actions?.forEach((action) => {
+        if (action.text === 'Live showcase') action.link = SHOWCASE_PROD_PATH
+      })
     },
-    search: { provider: 'local' },
-  },
+    vite: {
+      server: { port: 5177, strictPort: true },
+      preview: { port: 4174, strictPort: true },
+    },
+    themeConfig: {
+      logo: { text: 'Clay UI' },
+      nav: [
+        { text: 'Components', link: '/' },
+        {
+          text: 'Live showcase',
+          link: showcaseUrl,
+          ...(isProductionBuild ? {} : { target: '_blank' as const }),
+        },
+      ],
+      sidebar: [
+        { text: 'Getting started', items: [{ text: 'Introduction', link: '/' }] },
+        { text: 'UI Elements', items: ui },
+        { text: 'Data', items: data },
+        { text: 'Navigation', items: nav },
+        { text: 'Cards', items: cards },
+      ],
+      footer: {
+        message: 'Clay UI · React + TypeScript + Tailwind',
+        copyright: 'MIT',
+      },
+      search: { provider: 'local' },
+    },
+  }
 })

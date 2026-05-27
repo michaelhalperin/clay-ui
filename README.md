@@ -4,8 +4,9 @@ Soft, pastel React 18 component library built with TypeScript and Tailwind CSS.
 
 [![npm version](https://img.shields.io/npm/v/@michael1010/clay-ui.svg)](https://www.npmjs.com/package/@michael1010/clay-ui)
 
-**Live docs:** run `npm run docs:dev` in this repo → [http://localhost:5174](http://localhost:5174)  
-**Component showcase:** `npm run dev` → [http://localhost:5173](http://localhost:5173)
+**Live site:** [https://clay-ui.vercel.app](https://clay-ui.vercel.app) · **Showcase:** [https://clay-ui.vercel.app/showcase/](https://clay-ui.vercel.app/showcase/)
+
+**Local:** `npm run docs:dev` → [http://localhost:5177](http://localhost:5177) · `npm run dev` → [http://localhost:5173](http://localhost:5173)
 
 ---
 

@@ -1,6 +1,7 @@
-/** VitePress docs site origin (override with VITE_DOCS_URL in .env) */
-export const DOCS_BASE =
-  import.meta.env.VITE_DOCS_URL ?? 'http://localhost:5177'
+import { DOCS_DEV_URL } from '../../site-urls'
+
+/** Docs origin: full URL in local dev, same-site paths in production (/showcase deploy). */
+export const DOCS_BASE = import.meta.env.DEV ? DOCS_DEV_URL : ''
 
 /** Showcase section id → VitePress path */
 export const SECTION_DOC_PATHS: Record<string, string> = {
