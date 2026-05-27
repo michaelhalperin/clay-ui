@@ -156,7 +156,6 @@ const pages = [
     ['users', 'MentionUser[]', '—', 'Mentionable users (required)'],
     ['placeholder', 'string', '—', 'Textarea placeholder'],
   ]],
-  ['media-player', 'Media Player', 'Audio player UI with playlist (showcase).', 'MediaPlayerShowcase', `import { MediaPlayerShowcase } from 'clay-ui'`, `<MediaPlayerShowcase />`, []],
   ['tour', 'Tour', 'Spotlight onboarding tour with step tooltips (showcase).', 'TourShowcase', `import { TourShowcase } from 'clay-ui'`, `<TourShowcase />`, []],
   ['full-calendar', 'Full Calendar', 'Month calendar with events.', 'CalEvent', `import { type CalEvent } from 'clay-ui'`, `const events: CalEvent[] = [{ id, title, date, color }]`, [
     ['CalEvent', 'interface', '—', 'id, title, date, color?, time?'],
@@ -171,13 +170,6 @@ const pages = [
     ['color', 'string', `'#0ea5e9'`, 'Line color'],
     ['fill', 'boolean', 'true', 'Area fill under line'],
     ['type', `'line' | 'bar'`, `'line'`, 'Chart type'],
-  ]],
-  ['leaderboard', 'Leaderboard', 'Ranked list with scores and trends.', 'Player', `import { type Player } from 'clay-ui'`, `const players: Player[] = [{ rank, name, score, change }]`, [
-    ['Player', 'interface', '—', 'rank, name, score, avatar?, change?'],
-  ]],
-  ['activity-feed', 'Activity Feed', 'Timeline-style activity stream.', 'FeedEvent, EventType', `import { type FeedEvent } from 'clay-ui'`, `const events: FeedEvent[] = [{ id, type, user, action, time }]`, [
-    ['FeedEvent', 'interface', '—', 'id, type, user, action, time, meta?'],
-    ['EventType', 'type', '—', 'commit | pr | comment | deploy | …'],
   ]],
   ['data-grid', 'Data Grid', 'Sortable, filterable data table with selection (showcase).', 'DataGridShowcase', `import { DataGridShowcase } from 'clay-ui'`, `<DataGridShowcase />`, []],
   ['stat-cards', 'Stat Cards', 'KPI stat cards with trend and sparkline mini charts.', 'StatCard, MiniSparkCard', `import { StatCard } from 'clay-ui'`, `<StatCard label="Revenue" value="$12.4k" change={+8} icon={<Zap />} color="#0ea5e9" bgColor="#f0f9ff" />`, [
@@ -209,26 +201,11 @@ const pages = [
   ]],
   ['heatmap', 'Heatmap', 'Contribution, activity, and monthly heatmaps.', 'ContributionHeatmap, ActivityHeatmap, MonthlyHeatmap', `import { ContributionHeatmap } from 'clay-ui'`, `<ContributionHeatmap />`, []],
   ['navbar', 'Navbar', 'Responsive marketing navbar patterns (showcase).', 'NavbarShowcase', `import { NavbarShowcase } from 'clay-ui'`, `<NavbarShowcase />`, []],
-  ['mega-menu', 'Mega Menu', 'Full-width dropdown mega navigation.', 'MegaDropdown, MegaMenuItem, MegaMenuGroup', `import { MegaDropdown, type MegaMenuGroup } from 'clay-ui'`, `<MegaDropdown label="Product" menu={groups} />`, [
-    ['label', 'string', '—', 'Trigger label (required)'],
-    ['menu', 'MegaMenuGroup[]', '—', 'Grouped menu content (required)'],
-    ['MegaMenuItem', 'interface', '—', 'label, desc, icon, color, badge?'],
-  ]],
-  ['bottom-tab-bar', 'Bottom Tab Bar', 'Mobile bottom navigation tabs.', 'TabBar, BottomTab', `import { TabBar, type BottomTab } from 'clay-ui'`, `<TabBar tabs={tabs} active={id} onTab={setId} />`, [
-    ['tabs', 'BottomTab[]', '—', 'Tab definitions (required)'],
-    ['active', 'string', '—', 'Active tab id (required)'],
-    ['onTab', '(id: string) => void', '—', 'Selection handler (required)'],
-    ['variant', `'default' | 'floating'`, `'default'`, 'Bar style'],
-  ]],
-  ['collapsible-sidebar', 'Collapsible Sidebar', 'Expandable app sidebar navigation.', 'NavItem', `import { type NavItem } from 'clay-ui'`, `const nav: NavItem[] = [{ id, label, icon, badge?, children? }]`, [
-    ['NavItem', 'interface', '—', 'id, label, icon, badge?, children?'],
-  ]],
   ['cards', 'Cards', 'Product, profile, pricing, and testimonial cards.', 'ProductCard, ProfileCard, PricingCard, TestimonialCard', `import { ProductCard } from 'clay-ui'`, `<ProductCard name="Aurora" category="Audio" price={129} rating={4.5} reviews={84} color="#0ea5e9" />`, [
     ['name / plan / quote', 'string', '—', 'Primary text (varies by card)'],
     ['price / features', 'number | string[]', '—', 'Pricing card fields'],
     ['highlight', 'boolean', '—', 'Featured plan styling'],
   ]],
-  ['auth-card', 'Auth Card', 'Sign-in and sign-up card layouts.', 'SignInCard, SignUpCard', `import { SignInCard, SignUpCard } from 'clay-ui'`, `<SignInCard />`, []],
 ]
 
 function table(rows) {

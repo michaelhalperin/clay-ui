@@ -40,20 +40,13 @@ import { ComboboxShowcase } from "./components/ui/Combobox";
 import { TimePickerShowcase } from "./components/ui/TimePicker";
 import { MentionInputShowcase } from "./components/ui/MentionInput";
 import { SignaturePadShowcase } from "./components/ui/SignaturePad";
-import { MediaPlayerShowcase } from "./components/ui/MediaPlayer";
 import { TourShowcase } from "./components/ui/Tour";
 import { GaugeShowcase } from "./components/data/Gauge";
 import { FullCalendarShowcase } from "./components/data/FullCalendar";
 import { NotificationCenterShowcase } from "./components/data/NotificationCenter";
 import { SparklineShowcase } from "./components/data/Sparkline";
-import { LeaderboardShowcase } from "./components/data/Leaderboard";
-import { ActivityFeedShowcase } from "./components/data/ActivityFeed";
 import { DataGridShowcase } from "./components/data/DataGrid";
 import { StatCardsShowcase } from "./components/data/StatCards";
-import { MegaMenuShowcase } from "./components/nav/MegaMenu";
-import { BottomTabBarShowcase } from "./components/nav/BottomTabBar";
-import { CollapsibleSidebarShowcase } from "./components/nav/CollapsibleSidebar";
-import { AuthCardShowcase } from "./components/cards/AuthCard";
 import { ChartsShowcase } from "./components/data/Charts";
 import { TableShowcase } from "./components/data/Table";
 import { KanbanShowcase } from "./components/data/Kanban";
@@ -328,13 +321,6 @@ const sections: Section[] = [
     isNew: true,
   },
   {
-    id: "mediaplayer",
-    label: "Media Player",
-    category: "UI Elements",
-    component: <MediaPlayerShowcase />,
-    isNew: true,
-  },
-  {
     id: "tour",
     label: "Tour / Spotlight",
     category: "UI Elements",
@@ -364,20 +350,6 @@ const sections: Section[] = [
     label: "Sparkline",
     category: "Data",
     component: <SparklineShowcase />,
-    isNew: true,
-  },
-  {
-    id: "leaderboard",
-    label: "Leaderboard",
-    category: "Data",
-    component: <LeaderboardShowcase />,
-    isNew: true,
-  },
-  {
-    id: "activityfeed",
-    label: "Activity Feed",
-    category: "Data",
-    component: <ActivityFeedShowcase />,
     isNew: true,
   },
   {
@@ -454,38 +426,10 @@ const sections: Section[] = [
     component: <DrawerShowcase />,
   },
   {
-    id: "megamenu",
-    label: "Mega Menu",
-    category: "Navigation",
-    component: <MegaMenuShowcase />,
-    isNew: true,
-  },
-  {
-    id: "bottomtabbar",
-    label: "Bottom Tab Bar",
-    category: "Navigation",
-    component: <BottomTabBarShowcase />,
-    isNew: true,
-  },
-  {
-    id: "collapsiblesidebar",
-    label: "Collapsible Sidebar",
-    category: "Navigation",
-    component: <CollapsibleSidebarShowcase />,
-    isNew: true,
-  },
-  {
     id: "cards",
     label: "Cards",
     category: "Cards",
     component: <CardsShowcase />,
-  },
-  {
-    id: "authcard",
-    label: "Auth Card",
-    category: "Cards",
-    component: <AuthCardShowcase />,
-    isNew: true,
   },
 ];
 

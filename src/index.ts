@@ -39,21 +39,16 @@ export * from './components/ui/TreeView'
 export * from './components/ui/Chat'
 export * from './components/ui/ImageGallery'
 export * from './components/ui/KeyboardShortcuts'
-export * from './components/ui/MediaPlayer'
 export * from './components/ui/RichTextEditor'
 export * from './components/ui/Tour'
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
 export * from './components/nav/Tabs'
 export * from './components/nav/Drawer'
-export * from './components/nav/CollapsibleSidebar'
-export * from './components/nav/BottomTabBar'
-export * from './components/nav/MegaMenu'
 export * from './components/nav/Navbar'
 
 // ─── Cards ───────────────────────────────────────────────────────────────────
 export * from './components/cards/Cards'
-export * from './components/cards/AuthCard'
 
 // ─── Data & Charts ───────────────────────────────────────────────────────────
 export * from './components/data/Avatar'
@@ -63,9 +58,7 @@ export * from './components/data/StatCards'
 export * from './components/data/Charts'
 export * from './components/data/DataGrid'
 export * from './components/data/Table'
-export * from './components/data/ActivityFeed'
 export * from './components/data/FullCalendar'
-export * from './components/data/Leaderboard'
 export * from './components/data/Gauge'
 export * from './components/data/Timeline'
 export * from './components/data/Heatmap'

@@ -179,7 +179,7 @@ const variants: { id: SkeletonVariant; label: string; component: React.ReactNode
   { id: 'article',   label: 'Article',      component: <ArticleSkeleton /> },
   { id: 'dashboard', label: 'Dashboard',    component: <DashboardSkeleton /> },
   { id: 'table',     label: 'Table',        component: <TableSkeleton /> },
-  { id: 'feed',      label: 'Activity Feed',component: <FeedSkeleton /> },
+  { id: 'feed',      label: 'Feed',         component: <FeedSkeleton /> },
 ]
 
 export function SkeletonShowcase() {

@@ -151,15 +151,15 @@ function App() {
 
 ### Data
 
-`Avatar`, `AvatarGroup`, `Gauge`, `Sparkline`, `StatCard`, `EmptyState`, `Timeline`, `Kanban` types, chart showcases, tables, heatmaps, activity feeds, etc.
+`Avatar`, `AvatarGroup`, `Gauge`, `Sparkline`, `StatCard`, `EmptyState`, `Timeline`, `Kanban` types, chart showcases, tables, heatmaps, etc.
 
 ### Navigation
 
-`CardTabs`, `PillTabs`, `Drawer`, `TabBar`, `MegaDropdown`, collapsible sidebar patterns.
+`CardTabs`, `PillTabs`, `Drawer`, `Navbar`.
 
 ### Cards
 
-`ProductCard`, `ProfileCard`, `PricingCard`, `SignInCard`, `SignUpCard`.
+`ProductCard`, `ProfileCard`, `PricingCard`.
 
 See the [docs](./docs/) folder or `npm run docs:dev` for per-component props and examples.
 

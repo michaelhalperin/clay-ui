@@ -80,7 +80,6 @@ Run the docs locally: `npm run docs:dev` → [http://localhost:5177](http://loca
 | [Resizable Panel](/resizable-panel) | Draggable split panes |
 | [Keyboard Shortcuts](/keyboard-shortcuts) | Shortcut reference UI |
 | [Signature Pad](/signature-pad) | Canvas signature |
-| [Media Player](/media-player) | Audio player UI |
 | [Tour](/tour) | Spotlight onboarding |
 
 ## Data
@@ -98,10 +97,8 @@ Run the docs locally: `npm run docs:dev` → [http://localhost:5177](http://loca
 | [Timeline](/timeline) | Event timelines |
 | [Heatmap](/heatmap) | Activity heatmaps |
 | [Empty States](/empty-states) | Placeholder layouts |
-| [Activity Feed](/activity-feed) | Event stream |
 | [Full Calendar](/full-calendar) | Month calendar |
 | [Notification Center](/notification-center) | Inbox panel |
-| [Leaderboard](/leaderboard) | Ranked scores |
 
 ## Navigation
 
@@ -110,13 +107,9 @@ Run the docs locally: `npm run docs:dev` → [http://localhost:5177](http://loca
 | [Tabs](/tabs) | Card and pill tabs |
 | [Drawer](/drawer) | Slide-in sidebar |
 | [Navbar](/navbar) | Marketing navbar |
-| [Mega Menu](/mega-menu) | Full-width dropdown nav |
-| [Bottom Tab Bar](/bottom-tab-bar) | Mobile tab bar |
-| [Collapsible Sidebar](/collapsible-sidebar) | App sidebar |
 
 ## Cards
 
 | Component | Description |
 |-----------|-------------|
 | [Cards](/cards) | Product, profile, pricing cards |
-| [Auth Card](/auth-card) | Sign-in and sign-up |

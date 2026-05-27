@@ -46,14 +46,11 @@ export const SECTION_DOC_PATHS: Record<string, string> = {
   timepicker: '/time-picker',
   mentioninput: '/mention-input',
   signaturepad: '/signature-pad',
-  mediaplayer: '/media-player',
   tour: '/tour',
   gauge: '/gauge',
   fullcalendar: '/full-calendar',
   notificationcenter: '/notification-center',
   sparkline: '/sparkline',
-  leaderboard: '/leaderboard',
-  activityfeed: '/activity-feed',
   datagrid: '/data-grid',
   stats: '/stat-cards',
   charts: '/charts',
@@ -66,11 +63,7 @@ export const SECTION_DOC_PATHS: Record<string, string> = {
   navbar: '/navbar',
   tabs: '/tabs',
   drawer: '/drawer',
-  megamenu: '/mega-menu',
-  bottomtabbar: '/bottom-tab-bar',
-  collapsiblesidebar: '/collapsible-sidebar',
   cards: '/cards',
-  authcard: '/auth-card',
 }
 
 export function getDocUrl(path: string): string {

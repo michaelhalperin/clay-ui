@@ -43,7 +43,6 @@ const ui = [
   { text: 'Resizable Panel', link: '/resizable-panel' },
   { text: 'Keyboard Shortcuts', link: '/keyboard-shortcuts' },
   { text: 'Signature Pad', link: '/signature-pad' },
-  { text: 'Media Player', link: '/media-player' },
   { text: 'Tour', link: '/tour' },
 ]
 
@@ -59,25 +58,17 @@ const data = [
   { text: 'Timeline', link: '/timeline' },
   { text: 'Heatmap', link: '/heatmap' },
   { text: 'Empty States', link: '/empty-states' },
-  { text: 'Activity Feed', link: '/activity-feed' },
   { text: 'Full Calendar', link: '/full-calendar' },
   { text: 'Notification Center', link: '/notification-center' },
-  { text: 'Leaderboard', link: '/leaderboard' },
 ]
 
 const nav = [
   { text: 'Tabs', link: '/tabs' },
   { text: 'Drawer', link: '/drawer' },
   { text: 'Navbar', link: '/navbar' },
-  { text: 'Mega Menu', link: '/mega-menu' },
-  { text: 'Bottom Tab Bar', link: '/bottom-tab-bar' },
-  { text: 'Collapsible Sidebar', link: '/collapsible-sidebar' },
 ]
 
-const cards = [
-  { text: 'Cards', link: '/cards' },
-  { text: 'Auth Card', link: '/auth-card' },
-]
+const cards = [{ text: 'Cards', link: '/cards' }]
 
 export default defineConfig(({ command }) => {
   const isProductionBuild = command === 'build'
