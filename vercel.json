@@ -3,5 +3,6 @@
   "buildCommand": "npm run build:site",
   "outputDirectory": "docs/.vitepress/dist",
   "installCommand": "npm install",
-  "framework": null
+  "framework": null,
+  "cleanUrls": true
 }
