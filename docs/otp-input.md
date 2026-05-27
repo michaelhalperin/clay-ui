@@ -1,6 +1,6 @@
 # OTP Input
 
-Segmented one-time password input with paste support.
+Segmented one-time password field with auto-advance, backspace navigation, and paste support.
 
 ## Import
 
@@ -11,7 +11,16 @@ import { OTPField } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<OTPField length={6} onComplete={(code) => verify(code)} />
+import { OTPField } from 'clay-ui'
+
+function Verify() {
+  return (
+    <OTPField
+      length={6}
+      onComplete={(code) => console.log('Submitted:', code)}
+    />
+  )
+}
 ```
 
 ## Exports
@@ -22,6 +31,8 @@ import { OTPField } from 'clay-ui'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `length` | number | 6 | Number of digits |
-| `onComplete` | (val: string) => void | — | Called when all cells filled |
+| `length` | `number` | `6` | Number of digit cells |
+| `onComplete` | `(val: string) => void` | — | Called when all cells are filled |
+## Notes
 
+Focus moves forward on input and backward on Backspace. Pasting a full code fills all cells at once.

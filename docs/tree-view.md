@@ -1,6 +1,6 @@
 # Tree View
 
-Expandable file tree with selection.
+Expandable file-tree with folder icons, selection, and nested children.
 
 ## Import
 
@@ -11,7 +11,22 @@ import { FileTree, type TreeNode } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<FileTree />
+import { FileTree, type TreeNode } from 'clay-ui'
+
+const nodes: TreeNode[] = [
+  {
+    id: 'src',
+    label: 'src',
+    children: [
+      { id: 'app', label: 'App.tsx' },
+      { id: 'main', label: 'main.tsx' },
+    ],
+  },
+]
+
+function Example() {
+  return <FileTree />
+}
 ```
 
 ## Exports
@@ -19,9 +34,14 @@ import { FileTree, type TreeNode } from 'clay-ui'
 - `FileTree`
 - `TreeNode`
 
-## Props
+## TreeNode
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `TreeNode` | interface | — | id, label, icon?, children? |
+| `id` | `string` | — | Unique node id (required) |
+| `label` | `string` | — | Display name (required) |
+| `icon` | `React.ReactNode` | — | Custom icon |
+| `children` | `TreeNode[]` | — | Nested nodes |
+## Notes
 
+`FileTree` uses built-in sample data in the showcase. Pass your own tree by adapting the component.

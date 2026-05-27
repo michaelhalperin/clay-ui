@@ -1,17 +1,23 @@
 # Color Picker
 
-HSV panel, inline swatch, and popover color pickers.
+HSV color panel with hex output, plus inline swatch and popover trigger variants.
 
 ## Import
 
 ```tsx
-import { ColorPickerPanel } from 'clay-ui'
+import { ColorPickerPanel, InlineColorPicker, PopoverColorPicker } from 'clay-ui'
 ```
 
 ## Basic usage
 
 ```tsx
-<ColorPickerPanel hex={color} onChange={setColor} />
+import { useState } from 'react'
+import { ColorPickerPanel } from 'clay-ui'
+
+function Example() {
+  const [hex, setHex] = useState('#0ea5e9')
+  return <ColorPickerPanel hex={hex} onChange={setHex} />
+}
 ```
 
 ## Exports
@@ -20,10 +26,16 @@ import { ColorPickerPanel } from 'clay-ui'
 - `InlineColorPicker`
 - `PopoverColorPicker`
 
-## Props
+## ColorPickerPanel props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `hex` | string | — | Current hex color (required) |
-| `onChange` | (hex: string) => void | — | Change handler (required) |
+| `hex` | `string` | — | Current hex color, e.g. `#0ea5e9` (required) |
+| `onChange` | `(hex: string) => void` | — | Called with updated hex (required) |
+## Examples
+
+```tsx
+<InlineColorPicker />
+<PopoverColorPicker />
+```
 

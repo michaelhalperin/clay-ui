@@ -1,17 +1,26 @@
 # Combobox
 
-Single and multi-select searchable comboboxes.
+Searchable single- and multi-select comboboxes with grouped options.
 
 ## Import
 
 ```tsx
-import { MultiCombobox, type ComboboxOption } from 'clay-ui'
+import { MultiCombobox, SingleCombobox, type ComboboxOption } from 'clay-ui'
 ```
 
 ## Basic usage
 
 ```tsx
-<MultiCombobox label="Stack" options={opts} />
+import { MultiCombobox, type ComboboxOption } from 'clay-ui'
+
+const options: ComboboxOption[] = [
+  { value: 'react', label: 'React' },
+  { value: 'vue', label: 'Vue', group: 'Frameworks' },
+]
+
+function Example() {
+  return <MultiCombobox label="Stack" options={options} placeholder="Search…" />
+}
 ```
 
 ## Exports
@@ -20,11 +29,23 @@ import { MultiCombobox, type ComboboxOption } from 'clay-ui'
 - `SingleCombobox`
 - `ComboboxOption`
 
-## Props
+## ComboboxOption
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `label` | string | — | Field label (required) |
-| `placeholder` | string | 'Search…' | Input placeholder (multi) |
-| `options` | ComboboxOption[] | — | Choices: value, label, group? (required) |
+| `value` | `string` | — | Stored value (required) |
+| `label` | `string` | — | Display label (required) |
+| `group` | `string` | — | Optional group heading |
+## MultiCombobox props
 
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Field label (required) |
+| `options` | `ComboboxOption[]` | — | Choices (required) |
+| `placeholder` | `string` | 'Search…' | Filter input placeholder |
+## SingleCombobox props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Field label (required) |
+| `options` | `ComboboxOption[]` | — | Choices (required) |

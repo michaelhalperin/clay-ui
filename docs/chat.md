@@ -1,17 +1,21 @@
 # Chat
 
-Messaging window and contact list layouts.
+Messaging window and contact list layouts with sample conversations.
 
 ## Import
 
 ```tsx
-import { ChatWindow } from 'clay-ui'
+import { ChatWindow, ContactList, type Message } from 'clay-ui'
 ```
 
 ## Basic usage
 
 ```tsx
-<ChatWindow />
+import { ChatWindow } from 'clay-ui'
+
+function Example() {
+  return <ChatWindow />
+}
 ```
 
 ## Exports
@@ -20,9 +24,15 @@ import { ChatWindow } from 'clay-ui'
 - `ContactList`
 - `Message`
 
-## Props
+## Message
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `Message` | interface | — | Exported message shape: id, text, sender, time, avatar |
+| `id` | `string` | — | Unique id |
+| `text` | `string` | — | Message body |
+| `sender` | `'me' | 'them'` | — | Bubble alignment |
+| `time` | `string` | — | Display timestamp |
+| `avatar` | `string` | — | Gradient classes for avatar circle |
+## Notes
 
+`ChatWindow` and `ContactList` are self-contained demos. Use the `Message` type when wiring your own data.

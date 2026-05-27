@@ -1,17 +1,29 @@
 # Checkbox & Radio
 
-Accessible checkbox, radio, and card-style radio controls.
+Accessible checkbox, radio, and large card-style radio options with labels and descriptions.
 
 ## Import
 
 ```tsx
-import { Checkbox, Radio } from 'clay-ui'
+import { Checkbox, Radio, CardRadio } from 'clay-ui'
 ```
 
 ## Basic usage
 
 ```tsx
-<Checkbox checked={v} onChange={setV} label="Accept terms" />
+import { useState } from 'react'
+import { Checkbox, Radio } from 'clay-ui'
+
+function Example() {
+  const [terms, setTerms] = useState(false)
+  const [plan, setPlan] = useState('pro')
+  return (
+    <>
+      <Checkbox checked={terms} onChange={setTerms} label="Accept terms" />
+      <Radio value="pro" selected={plan} onChange={setPlan} label="Pro plan" />
+    </>
+  )
+}
 ```
 
 ## Exports
@@ -20,14 +32,33 @@ import { Checkbox, Radio } from 'clay-ui'
 - `Radio`
 - `CardRadio`
 
-## Props
+## Checkbox props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `checked / selected` | boolean | — | Selection state |
-| `onChange` | function | — | Change handler |
-| `label` | string | — | Primary label |
-| `description` | string | — | Helper text |
-| `disabled` | boolean | — | Disables control |
-| `color` | string | '#0ea5e9' | Accent color |
+| `checked` | `boolean` | — | Checked state (required) |
+| `onChange` | `(v: boolean) => void` | — | Change handler (required) |
+| `label` | `string` | — | Primary label |
+| `description` | `string` | — | Helper text |
+| `disabled` | `boolean` | — | Disables the control |
+| `indeterminate` | `boolean` | — | Shows dash instead of check |
+| `color` | `string` | '#0ea5e9' | Accent color when checked |
+## Radio & CardRadio props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | — | This option’s value (required) |
+| `selected` | `string` | — | Currently selected value (required) |
+| `onChange` | `(v: string) => void` | — | Called with `value` when selected (required) |
+| `label` | `string` | — | Primary label |
+| `description` | `string` | — | Helper text |
+| `disabled` | `boolean` | — | Disables the control |
+| `color` | `string` | '#0ea5e9' | Accent color |
+| `icon` | `React.ReactNode` | — | CardRadio only — leading icon |
+## Examples
+
+```tsx
+<Checkbox checked={v} onChange={setV} indeterminate label="Select all" />
+<CardRadio value="team" selected={plan} onChange={setPlan} label="Team" description="Shared workspace" icon={<Users />} />
+```
 

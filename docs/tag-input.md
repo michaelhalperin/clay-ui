@@ -1,6 +1,6 @@
 # Tag Input
 
-Chip input with suggestions and keyboard removal.
+Chip input for tags with keyboard add/remove and optional autocomplete suggestions.
 
 ## Import
 
@@ -11,7 +11,17 @@ import { TagInput } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<TagInput label="Tags" suggestions={['Design', 'Engineering']} />
+import { TagInput } from 'clay-ui'
+
+function Example() {
+  return (
+    <TagInput
+      label="Skills"
+      placeholder="Add a skill…"
+      suggestions={['React', 'TypeScript', 'Tailwind', 'Design']}
+    />
+  )
+}
 ```
 
 ## Exports
@@ -22,7 +32,9 @@ import { TagInput } from 'clay-ui'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `label` | string | — | Field label |
-| `placeholder` | string | 'Add tag…' | Input placeholder |
-| `suggestions` | string[] | — | Autocomplete suggestions |
+| `label` | `string` | — | Field label |
+| `placeholder` | `string` | 'Add tag…' | Input placeholder |
+| `suggestions` | `string[]` | — | Autocomplete list shown while typing |
+## Notes
 
+Press Enter or comma to add a tag. Click × on a chip or press Backspace in an empty input to remove.

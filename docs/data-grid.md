@@ -1,6 +1,8 @@
 # Data Grid
 
-Sortable, filterable data table with selection (showcase).
+Advanced data table with sorting, filtering, column resize, and row selection.
+
+> **Showcase component** — a pre-built demo layout with sample data. Use it for reference or copy patterns into your app. Open the [live showcase](/showcase/) to interact with it.
 
 ## Import
 
@@ -11,14 +13,17 @@ import { DataGridShowcase } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<DataGridShowcase />
+import { DataGridShowcase } from 'clay-ui'
+
+function Example() {
+  return <DataGridShowcase />
+}
 ```
 
 ## Exports
 
 - `DataGridShowcase`
 
-## Props
+## Notes
 
-_See the live showcase for usage patterns._
-
+Study the showcase for column definitions, bulk actions, and filter chips. Extract the table markup for your own dataset.

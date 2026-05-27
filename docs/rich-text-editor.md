@@ -1,6 +1,8 @@
 # Rich Text Editor
 
-Contenteditable editor with formatting toolbar (showcase).
+Contenteditable editor with a formatting toolbar (bold, lists, links, etc.).
+
+> **Showcase component** — a pre-built demo layout with sample data. Use it for reference or copy patterns into your app. Open the [live showcase](/showcase/) to interact with it.
 
 ## Import
 
@@ -11,14 +13,17 @@ import { RichTextEditorShowcase } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<RichTextEditorShowcase />
+import { RichTextEditorShowcase } from 'clay-ui'
+
+function Example() {
+  return <RichTextEditorShowcase />
+}
 ```
 
 ## Exports
 
 - `RichTextEditorShowcase`
 
-## Props
+## Notes
 
-_See the live showcase for usage patterns._
-
+The showcase wraps a `contentEditable` region and toolbar. Copy the pattern for custom placeholder text or controlled HTML export.

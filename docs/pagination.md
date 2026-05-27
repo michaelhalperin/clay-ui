@@ -1,6 +1,6 @@
 # Pagination
 
-Page controls with size and style variants.
+Page controls with ellipsis, first/last jumps, and visual variants.
 
 ## Import
 
@@ -11,7 +11,13 @@ import { Pager } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<Pager page={page} totalPages={12} go={setPage} />
+import { useState } from 'react'
+import { Pager } from 'clay-ui'
+
+function Example() {
+  const [page, setPage] = useState(1)
+  return <Pager page={page} totalPages={12} go={setPage} variant="rounded" />
+}
 ```
 
 ## Exports
@@ -22,9 +28,8 @@ import { Pager } from 'clay-ui'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `page` | number | — | Current page (required) |
-| `totalPages` | number | — | Total pages (required) |
-| `go` | (page: number) => void | — | Page change handler (required) |
-| `size` | 'sm' | 'md' | 'lg' | 'md' | Control size |
-| `variant` | 'default' | 'rounded' | 'minimal' | 'default' | Visual style |
-
+| `page` | `number` | — | Current page, 1-based (required) |
+| `totalPages` | `number` | — | Total page count (required) |
+| `go` | `(page: number) => void` | — | Called when user picks a page (required) |
+| `size` | `'sm' | 'md' | 'lg'` | 'md' | Control size |
+| `variant` | `'default' | 'rounded' | 'minimal'` | 'default' | Visual style |

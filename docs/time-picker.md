@@ -1,6 +1,6 @@
 # Time Picker
 
-Scrollable time selector with 12h/24h and seconds.
+Scrollable hour/minute (and optional second) columns with 12h or 24h format.
 
 ## Import
 
@@ -11,7 +11,11 @@ import { TimePickerWidget } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<TimePickerWidget label="Start time" use12h />
+import { TimePickerWidget } from 'clay-ui'
+
+function Example() {
+  return <TimePickerWidget label="Start time" use12h showSeconds />
+}
 ```
 
 ## Exports
@@ -22,7 +26,6 @@ import { TimePickerWidget } from 'clay-ui'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `label` | string | — | Field label |
-| `showSeconds` | boolean | false | Include seconds column |
-| `use12h` | boolean | false | 12-hour format with AM/PM |
-
+| `label` | `string` | — | Field label |
+| `showSeconds` | `boolean` | `false` | Include seconds column |
+| `use12h` | `boolean` | `false` | 12-hour format with AM/PM toggle |

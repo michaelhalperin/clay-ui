@@ -1,6 +1,8 @@
 # Charts
 
-Recharts-based area, bar, pie, and radial charts (showcase).
+Recharts-based dashboard charts: area, bar, pie, and radial — styled with Clay tokens.
+
+> **Showcase component** — a pre-built demo layout with sample data. Use it for reference or copy patterns into your app. Open the [live showcase](/showcase/) to interact with it.
 
 ## Import
 
@@ -11,14 +13,17 @@ import { ChartsShowcase } from 'clay-ui'
 ## Basic usage
 
 ```tsx
-<ChartsShowcase />
+import { ChartsShowcase } from 'clay-ui'
+
+function Example() {
+  return <ChartsShowcase />
+}
 ```
 
 ## Exports
 
 - `ChartsShowcase`
 
-## Props
+## Notes
 
-_See the live showcase for usage patterns._
-
+Built on [Recharts](https://recharts.org/). The showcase is the best reference for `ResponsiveContainer`, custom tooltips, and clay card wrappers. Copy a chart and swap in your `data` array.

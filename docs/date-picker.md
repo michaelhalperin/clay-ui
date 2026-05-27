@@ -1,17 +1,26 @@
 # Date Picker
 
-Single date, range, and inline calendar pickers.
+Calendar pickers for a single date, a date range, or an always-visible inline calendar.
 
 ## Import
 
 ```tsx
-import { SinglePicker } from 'clay-ui'
+import { SinglePicker, RangePicker, InlineCalendar } from 'clay-ui'
 ```
 
 ## Basic usage
 
 ```tsx
-<SinglePicker label="Start date" />
+import { SinglePicker, RangePicker } from 'clay-ui'
+
+function Example() {
+  return (
+    <>
+      <SinglePicker label="Start date" />
+      <RangePicker label="Trip dates" />
+    </>
+  )
+}
 ```
 
 ## Exports
@@ -20,9 +29,17 @@ import { SinglePicker } from 'clay-ui'
 - `RangePicker`
 - `InlineCalendar`
 
-## Props
+## SinglePicker & RangePicker props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `label` | string | — | Field label (`SinglePicker`, `RangePicker`) |
+| `label` | `string` | — | Field label above the trigger |
+## Examples
 
+```tsx
+<InlineCalendar />
+```
+
+## Notes
+
+Pickers manage their own open state and selected dates internally. For full control, lift state by adapting the source component.
