@@ -13,19 +13,28 @@
       "require": "./dist/clay-ui.cjs.js",
       "types": "./dist/index.d.ts"
     },
-    "./preset": "./clay-ui.preset.cjs"
+    "./preset": "./clay-ui.preset.cjs",
+    "./styles.css": "./clay-ui.base.css"
   },
   "files": [
     "dist",
-    "clay-ui.preset.cjs"
+    "clay-ui.preset.cjs",
+    "clay-ui.base.css",
+    "scripts",
+    "bin"
   ],
+  "bin": {
+    "clay-ui-setup": "./bin/clay-ui-setup.mjs"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "postinstall": "node scripts/postinstall.mjs",
+    "setup": "node bin/clay-ui-setup.mjs"
   },
   "peerDependencies": {
     "lucide-react": ">=0.400.0",
